@@ -1,6 +1,27 @@
 {
-  "version": 2,
-  "routes": [
-    { "src": "/(.*)", "dest": "/api/proxy" }
+  "rewrites": [
+    { "source": "/v1/chat/completions", "destination": "/api/chat" },
+    { "source": "/v1/models", "destination": "/api/chat" }
   ]
 }
+```
+
+**② Удалите** файл `api/proxy.py`
+
+**③ Создайте** файл `api/chat.py` — скачанный файл `chat.py`
+
+Структура репозитория должна быть:
+```
+openai-proxy/
+  vercel.json
+  api/
+    chat.py       ← новый
+```
+
+**④** Vercel задеплоит автоматически через 30 сек после коммита
+
+**⑤** Проверьте в браузере: `https://ваш-прокси.vercel.app/` — должно показать `{"status":"ok","proxy":"openai-vercel"}`
+
+**⑥** В Streamlit поле **API Base URL** остаётся то же:
+```
+https://openai-proxy-ваш-логин.vercel.app/v1
