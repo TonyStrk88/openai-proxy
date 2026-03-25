@@ -4,9 +4,3 @@
     { "source": "/v1/models", "destination": "/api/chat" }
   ]
 }
-```
-→ **Commit changes**
-
-Подождите 30 секунд и проверьте: откройте в браузере
-```
-https://openai-proxy-roan-seven.vercel.app/
